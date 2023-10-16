@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sprint 4 - Insurance Rater</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Sofia+Sans+Condensed:wght@300;500;800;1000&display=swap');
+
+    html {
+        /*background-color: #420000;*/
+        background-image: linear-gradient(to right top, #a31c10, #b01c11, #bd1c13, #ca1c14, #d81b16, #db3110, #de4108, #e14f00, #d86700, #ce7a00, #c58b00, #bb991e);
+        background-size: 200vw 200vh;
+        color: white;
+        font-family: 'Sofia Sans Condensed', sans-serif;
+        font-size: 4vmin;
+    }
+
+    h1 {
+        font-family: 'Dela Gothic One', sans-serif;
+        text-transform: uppercase;
+        font-size: 7vmin;
+        letter-spacing: 7px;
+        font-variant-ligatures: none;
+        text-align: center;
+        text-decoration: underline;
+        text-underline-offset: 10px;
+
+    }
+
+    body {
+
+        padding-left: 2%;
+        padding-right: 2%;
+
+    }
+
+    label {
+        font-weight: 800;
+    }
+    
+    .chk_lbl {
+        font-weight: 400;
+    }
+
+    output {
+        margin-left: 12%;   
+    }
+
+    input[type=text] {
+        border: none;
+        border-bottom: 2px solid #fff;
+        background-color: rgba(0,0,0,0);
+        font-family: 'Sofia Sans Condensed', sans-serif;
+        height: 5vmin;
+        box-sizing: border-box;
+        font-size: 4vmin;
+        color: white;
+        width: 2em;
+      }
+
+      input[type=text]:focus {
+        background-color: rgba(0,0,0,2);
+      }
+
+    /* https://stackoverflow.com/a/23741073 */
+
+    form  { display: table;      }
+    form p     { display: table-row;  }
+    form .col  { display: table-cell; }
+    form label { display: table-cell; }
+    
+    form input { display: table-cell; margin-left: 12%; }
+    form select { display: table-cell; margin-left: 12%; }
+    form button { display: table-cell; margin-left: 12%; }
+    .slight_left {padding-left: 12%; }
+ 
+    .slight_left label {display: table-cell; padding-left: 12%; }
+
+    footer a {text-align: center; color: #aaa;}
+</style>
+
+</head>
+
+<!-- https://coder-coder.com/build-flexbox-website-layout/ -->
+
+<body>
+
+    <header>
+        <h1>
+            Health Insurance Calculator
+        </h1>
+    </header>
+
+
+
+    <section>
+        <form>
+            <p>
+                <label for="age">Age: </label>
+                <input type="text" id="age" name="age" placeholder="18"><br>
+            </p>
+            <p>
+                <div class = "col">&nbsp;</div>
+                <button >Submit Age</button>
+            </p>
+            <p>
+                <label for="height">Height: </label>
+                
+                <input type="text" id="feet" name="feet" placeholder="5"> &rsquo;
+                <input type="text" id="inch" name="inch" placeholder="9"> &rdquo;
+                <input type="text" id="metric" name="metric" placeholder="180"> cm
+            </p>
+            <p>
+                <div class = "col">&nbsp;</div>
+                <button >Submit Height</button>
+            </p>
+            <p>
+                <label for="weight">Weight: </label>
+                
+                <input type="text" id="pound" name="pound" placeholder="160"> lbs.
+                <div class = "col">&nbsp;</div>
+                <input type="text" id="kilo" name="kilo" placeholder="80"> kg
+            </p>
+            <p>
+                <div class = "col">&nbsp;</div>
+                <button >Submit Weight</button>
+            </p>
+            <p>
+                <label for="bp">Blood Pressure: </label>
+                
+                <input type="text" id="sys_bp" name="sys_bp" placeholder="110"> Hg
+                <input type="text" id="dia_bp" name="dia_bp" placeholder="70"> Hg
+            </p>
+            <p>
+                <div class = "col">&nbsp;</div>
+                <button >Submit Blood Pressure</button>
+            </p>
+            <p>
+                <label for="family">Choose history:</label>
+                <div class = "slight_left">
+                    <p>
+                        <input type="checkbox" id="fam1" name="fam1" value="Diabetes">
+                        <label for="fam1" class = "chk_lbl"> diabetes</label>
+                    </p><p>
+                        <input type="checkbox" id="fam2" name="fam2" value="Cancer">
+                        <label for="fam2" class = "chk_lbl"> cancer</label>
+                    </p><p>
+                        <input type="checkbox" id="fam3" name="fam3" value="Alzheimers">
+                        <label for="fam3" class = "chk_lbl"> Alzheimer&rsquo;s</label>
+                    </p>
+                </div>
+            </p>
+            <p>
+                <div class = "col">&nbsp;</div>
+                <button >Submit Family History</button>
+            </p>
+
+        </form>
+        <form>
+            <label for="results">Results: </label>
+            <output form="numform" id="results" name="results" for="risk_calc">10</output>
+        </form>
+
+    </section>
+
+    <footer>
+        <a href="">return to team portfolio</a>
+    </footer>
+
+    
+
+</body>
+</html>

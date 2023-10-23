@@ -78,6 +78,9 @@
     footer a {text-align: center; color: #aaa;}
 </style>
 
+
+
+
 </head>
 
 <!-- https://coder-coder.com/build-flexbox-website-layout/ -->
@@ -151,7 +154,10 @@
             </p>
             <p>
                 <div class = "col">&nbsp;</div>
-                <button >Submit Family History</button>
+
+                <!-- It is super important to specify the type of the button. 
+                If not specified, the page will reload and the API will never be called in time. -->
+                <button onclick="sendData()" type='button'>Submit Family History</button>
             </p>
 
         </form>
@@ -168,5 +174,136 @@
 
     
 
+    <script>
+
+        sendMe = {}
+
+        const URL = "https://testazurefx001.azurewebsites.net/api/RetrieveInsuranceData";
+         const URL1 = "http://localhost:7071/api/RetrieveInsuranceData";
+         const URL2 = "https://node-js-on-azure-amk.azurewebsites.net/";
+         const URL3 = "https://type.fit/api/quotes";
+
+        /*
+        async function postJSON(data) {
+            try {
+              const response = await fetch(URL, {
+                method: "POST", // or 'PUT'
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+              });
+          
+              const result = await response.json();
+              console.log("Success:", result);
+            } catch (error) {
+              console.error("Error:", error);
+            }
+          }*/
+
+
+          
+
+         async function postJSON(data) {
+
+          /*  fetch('https://node-js-on-azure-amk.azurewebsites.net/')
+          .then((response) => response.json())
+          .then((data) => {
+              // Display the result in the input field
+              console.log(data.diceValue);
+          })
+          .catch((error) => {
+              console.error('Error:', error);
+          });*/
+
+          
+          
+          fetch(URL2)
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(data) {
+                    console.log(data);
+                });
+                
+                
+            
+
+
+
+
+          
+                /*
+            // Options to be given as parameter  
+            // in fetch for making requests 
+            // other then GET 
+            let options = { 
+                method: 'POST', 
+                headers: { 
+                    'Content-Type':  
+                        'application/json;charset=utf-8'
+                }, 
+                body: JSON.stringify(sendMe) 
+            } 
+            // Fake api for making post requests 
+            let fetchRes = await fetch( URL3, options);
+
+            fetchRes.then(res => 
+                res.json()).then(d => { 
+                    console.log(d) 
+                }) 
+                */
+          }
+          
+          
+
+         // const data = { username: "example" };
+        //  postJSON(data);
+
+          
+    
+        function getDOM(val){
+            return document.getElementById(val).value;
+        }
+    
+        // https://www.javatpoint.com/how-to-get-all-checked-checkbox-value-in-javascript
+        function isChkd(val){
+            var x = document.getElementById(val);  
+            return x.checked == true ? "true": "false";
+        }
+    
+        function sendData() {
+    
+            sendMe = {
+                age: getDOM("age"),
+                height_ft: getDOM("feet"),
+                height_in: getDOM("inch"),
+                height_cm: getDOM("metric"),
+                weight_lb: getDOM("pound"),
+                weight_kg: getDOM("kilo"),
+                pressure_sys: getDOM("sys_bp"),
+                pressure_dia: getDOM("dia_bp"),
+                history_f1: isChkd("fam1"),
+                history_f2: isChkd("fam2"),
+                history_f3: isChkd("fam3"),
+            };
+    
+            console.log("Sending over data: " + JSON.stringify(sendMe));
+            
+            postJSON(sendMe);          
+            
+            
+            }
+
+            
+    
+        
+    
+    
+    
+    
+    
+    
+    </script>
 </body>
 </html>
